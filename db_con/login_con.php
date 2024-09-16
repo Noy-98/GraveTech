@@ -32,11 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($user_type == 'admin') {
         $_SESSION['user_id'] = $id;
         $_SESSION['user_type'] = 'admin';
-        header('Location: ../php/dashboard/admin/home.php');
+        header('Location: ../php/dashboard/super_admin_dashboard/home.php');
     } elseif ($user_type == 'user') {
         $_SESSION['user_id'] = $id;
         $_SESSION['user_type'] = 'user';
-        header('Location: ../php/dashboard/user/home.php');
+        header('Location: ../php/dashboard/department_dashboard/home.php');
     } else {
         $_SESSION['error'] = 'Invalid user type.';
         header('Location: ../php/login.php');

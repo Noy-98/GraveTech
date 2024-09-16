@@ -95,7 +95,7 @@
       }
       ?>
 
-      <form method="post" action="../db_con/signup_con.php">
+      <form method="post" action="../db_con/registration_con.php">
         <div class="txt_field">
           <input type="text" name="full_name" required>
           <span></span>

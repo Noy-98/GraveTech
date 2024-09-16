@@ -98,7 +98,7 @@
       }
       ?>
 
-      <form method="post" action="../db_con/login_con.php">
+      <form method="post" action="../db_con/guest_login_con.php">
         <div class="txt_field">
           <input type="email" name="email" required>
           <span></span>
