@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Comembo Community Care</title>
+  <title>Garden of Memories</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../assets/img/logo_icon.png" rel="icon">
+  <link href="../assets/img/green_tree_icon.png" rel="icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -34,11 +34,11 @@
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="">barangaycomembo28@gmail.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>0917 144 0735</span></i>
+          <i class="bi bi-envelope d-flex align-items-center"><a href="">info@gardenofmemories.ph</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>(02) 642 6181</span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
-          <a href="https://www.facebook.com/profile.php?id=61555165777821" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100064140905935" class="facebook"><i class="bi bi-facebook"></i></a>
           <a href=""><i class="bi bi-twitter"></i></a>
           <a href=""><i class="bi bi-instagram"></i></a>
         </div>
@@ -50,17 +50,17 @@
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="../index.html" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="../assets/img/logo_icon.png" alt="">
-          <h1 class="sitename">Comembo Community Care</h1>
+   
+          <h1 class="sitename">Garden of Memories</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="../index.html#hero" class="">Home</a></li>
             <li><a href="../index.html#about">About</a></li>
-            <li><a href="../index.html#services">Services</a></li>
-            <li><a href="../index.html#team">Officials</a></li>
             <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="#">Tour</a></li> 
+            <li><a href="../php/device_registration.php">Grave Monitoring</a></li>
             <li class="dropdown"><a><span>Portal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <li><a href="../php/login.php">Login</a></li>
@@ -110,10 +110,9 @@
           <label>Password</label>
           <i class="bi bi-eye-slash" id="togglePassword1"></i>
         </div>
-        <div class="pass"><a href="../php/forgot_password.php">Forgot Password?</a></div>
         <input type="submit" value="Login">
         <div class="signup_link">
-          Not a member? <a href="../php/signup.php">Signup</a>
+          Don't have account? <a href="../php/signup.php">Signup</a>
         </div>
       </form>
     </div>
@@ -126,17 +125,17 @@
         <div class="col-lg-4 col-md-6">
           <div class="footer-about">
             <a href="../index.html" class="logo sitename">
-              <img src="../assets/img/logo_icon.png">
+              <img src="../assets/img/green_tree_icon.png">
             </a>
             <div class="footer-contact pt-3">
-              <p>Anahaw St., Comembo,</p>
-              <p>1217. Taguig City</p>
-              <p class="mt-3"><strong>Phone:</strong> <span>+8721 7971</span></p>
-              <p><strong>Email:</strong> <span>barangaycomembo28@gmail.com</span></p>
+              <p>3 Bagong Calzada,</p>
+              <p>Pateros, 1620 Metro Manila</p>
+              <p class="mt-3"><strong>Phone:</strong> <span>(02) 642 6181</span></p>
+              <p><strong>Email:</strong> <span>info@gardenofmemories.ph</span></p>
             </div>
             <div class="social-links d-flex mt-4">
               <a href=""><i class="bi bi-twitter"></i></a>
-              <a href="https://www.facebook.com/profile.php?id=61555165777821"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=100064140905935"><i class="bi bi-facebook"></i></a>
               <a href=""><i class="bi bi-instagram"></i></a>
             </div>
           </div>
@@ -147,18 +146,9 @@
           <ul>
             <li><a href="../index.html#hero">Home</a></li>
             <li><a href="../index.html#about">About us</a></li>
-            <li><a href="../index.html#services">Services</a></li>
-            <li><a href="../index.html#team">Officials</a></li>
             <li><a href="../index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Caregiver</a></li>
-            <li><a href="#">Transportation</a></li>
-            <li><a href="#">Job for Hire</a></li>
+            <li><a href="#">Tour</a></li>
+            <li><a href="../php/device_registration.php">Grave Monitoring</a></li>
           </ul>
         </div>
 
@@ -177,7 +167,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Comembo Community Care</strong> <span>All Rights
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Garden of Memories</strong> <span>All Rights
           Reserved</span></p>
       <div class="credits">
         2024

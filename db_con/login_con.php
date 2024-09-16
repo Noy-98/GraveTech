@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Validate if mobile number exists in the database
-    $stmt = $conn->prepare("SELECT id, password, user_type FROM user WHERE email = ?");
+    $stmt = $conn->prepare("SELECT id, password, user_type FROM userdepartmenttbl WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();

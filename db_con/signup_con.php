@@ -6,12 +6,13 @@ require_once 'conn.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
+    $department_name = $_POST['department_name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
     // Form validation
-    if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($confirm_password)) {
+    if (empty($first_name) || empty($last_name) || empty($department_name) || empty($email) || empty($password) || empty($confirm_password)) {
         $_SESSION['error'] = 'All fields are required.';
         header('Location: ../php/signup.php');
         exit();
@@ -33,11 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare an SQL statement
-    $sql = "INSERT INTO user (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO userdepartmenttbl (first_name, last_name, department_name, email, password) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     
     if ($stmt) {
-        $stmt->bind_param("ssss", $first_name, $last_name, $email, $hashed_password);
+        $stmt->bind_param("sssss", $first_name, $last_name, $department_name, $email, $hashed_password);
         
         if ($stmt->execute()) {
             $_SESSION['success'] = 'Signup successful!';

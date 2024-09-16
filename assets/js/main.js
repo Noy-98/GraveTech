@@ -38,6 +38,19 @@
 
   });
 
+  document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.dropdown-toggle');
+
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+            e.preventDefault();
+            const menu = this.nextElementSibling;
+            menu.classList.toggle('show');
+        });
+    });
+});
+
+
   /**
    * Toggle mobile nav dropdowns
    */

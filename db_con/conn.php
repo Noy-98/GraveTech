@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "ccc_web_db";
+$dbname = "gravetechdb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
