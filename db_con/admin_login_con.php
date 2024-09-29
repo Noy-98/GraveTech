@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->num_rows == 0) {
         $_SESSION['error'] = 'Email not found.';
-        header('Location: ../php/login.php');
+        header('Location: ../php/Portal/Admin/login.php');
         exit();
     }
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validate password
     if (!password_verify($password, $hashed_password)) {
         $_SESSION['error'] = 'Incorrect password.';
-        header('Location: ../php/login.php');
+        header('Location: ../php/Portal/Admin/login.php');
         exit();
     }
 
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: ../php/dashboard/department_dashboard/home.php');
     } else {
         $_SESSION['error'] = 'Invalid user type.';
-        header('Location: ../php/login.php');
+        header('Location: ../php/Portal/Admin/login.php');
     }
 
     $stmt->close();

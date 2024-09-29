@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->num_rows == 0) {
         $_SESSION['error'] = 'Email not found.';
-        header('Location: ../php/device_login.php');
+        header('Location: ../php/Portal/Guest/login.php');
         exit();
     }
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validate password
     if (!password_verify($password, $hashed_password)) {
         $_SESSION['error'] = 'Incorrect password.';
-        header('Location: ../php/device_login.php');
+        header('Location: ../php/Portal/Guest/login.php');
         exit();
     }
 

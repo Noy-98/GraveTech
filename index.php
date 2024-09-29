@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,11 +65,10 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#">Tour</a></li> 
-            <li><a href="php/device_registration.php">Grave Monitoring</a></li>
             <li class="dropdown"><a><span>Portal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="php/login.php">Login</a></li>
-                <li><a href="php/signup.php">Signup</a></li>
+                <li><a href="php/Portal/Guest/login.php">Login</a></li>
+                <li><a href="php/Portal/Guest/signup.php">Signup</a></li>
               </ul>
             </li>
           </ul>
@@ -172,7 +175,7 @@
           </div><!-- End Google Maps -->
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
+            <form action="db_con/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -192,9 +195,16 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                <?php
+                if (isset($_SESSION['error-message'])) {
+                    echo '<div class="alert alert-danger">' . $_SESSION['error-message'] . '</div>';
+                    unset($_SESSION['error-message']);
+                }
+                if (isset($_SESSION['sent-message'])) {
+                    echo '<div class="alert alert-success">' . $_SESSION['sent-message'] . '</div>';
+                    unset($_SESSION['sent-message']);
+                }
+                ?>
 
                   <button type="submit">Send Message</button>
                 </div>
@@ -241,18 +251,24 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#">Tour</a></li>
-            <li><a href="php/device_registration.php">Grave Monitoring</a></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Our Newsletter</h4>
           <p>Subscribe to our newsletter and receive the latest news about our services!</p>
-          <form action="forms/newsletter.php" method="post" class="php-email-form">
+          <form action="db_con/news_letter.php" method="post" class="php-email-form">
             <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+            <?php
+                if (isset($_SESSION['error_message'])) {
+                    echo '<div class="error_message">' . $_SESSION['error_message'] . '</div>';
+                    unset($_SESSION['error_message']);
+                }
+                if (isset($_SESSION['success_message'])) {
+                    echo '<div class="success_message">' . $_SESSION['success_message'] . '</div>';
+                    unset($_SESSION['success_message']);
+                }
+            ?>
           </form>
         </div>
 
@@ -276,7 +292,6 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
