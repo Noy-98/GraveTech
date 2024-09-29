@@ -10,7 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Garden of Memories | Admin</title>
+  <title>Garden of Memories | Guest</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -54,7 +54,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="../../../admin_landing_page.php" class="logo d-flex align-items-center">
+        <a href="../../../index.php" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
    
           <h1 class="sitename">Garden of Memories</h1>
@@ -62,15 +62,15 @@ if (session_status() == PHP_SESSION_NONE) {
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="../../../admin_landing_page.php#hero" class="">Home</a></li>
-            <li><a href="../../../admin_landing_page.php#about">About</a></li>
-            <li><a href="../../../admin_landing_page.php#contact">Contact</a></li>
-            <li><a href="#">Tour</a></li>
+            <li><a href="../../../index.php#hero" class="">Home</a></li>
+            <li><a href="../../../index.php#about">About</a></li>
+            <li><a href="../../../index.php#contact">Contact</a></li>
+            <li><a href="#">Tour</a></li> 
             <li class="dropdown"><a><span>Portal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="../../../php/Portal/Admin/login.php">Login</a></li>
-                <li><a href="../../../php/Portal/Admin/signup.php">Signup</a></li>
-                <li><a href="../../../php/Portal/Admin/forgot_password.php">Forgot Password</a></li>
+                <li><a href="../../../php/Portal/Guest/login.php">Login</a></li>
+                <li><a href="../../../php/Portal/Guest/signup.php">Signup</a></li>
+                <li><a href="../../../php/Portal/Guest/forgot_password.php">Forgot Password</a></li>
               </ul>
             </li>
           </ul>
@@ -84,7 +84,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
   <section id="login">
     <div class="center">
-      <h1>Login</h1>
+      <h1>Forgot Password</h1>
       <!-- Validation message section -->
       <?php
 
@@ -101,22 +101,13 @@ if (session_status() == PHP_SESSION_NONE) {
       }
       ?>
 
-      <form method="post" action="../../../db_con/admin_login_con.php">
+      <form method="post" action="../../../db_con/guest_forgot_password_con.php">
         <div class="txt_field">
           <input type="email" name="email" required>
           <span></span>
           <label>Email</label>
         </div>
-        <div class="txt_field">
-          <input type="password" id="password" name="password" required>
-          <span></span>
-          <label>Password</label>
-          <i class="bi bi-eye-slash" id="togglePassword1"></i>
-        </div>
         <input type="submit" value="Login">
-        <div class="signup_link">
-          Don't have account? <a href="../../../php/Portal/Admin/signup.php">Signup</a>
-        </div>
       </form>
     </div>
   </section>
@@ -127,7 +118,7 @@ if (session_status() == PHP_SESSION_NONE) {
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6">
           <div class="footer-about">
-            <a href="../../../admin_landing_page.php" class="logo sitename">
+            <a href="../../../index.php" class="logo sitename">
               <img src="../../../assets/img/green_tree_icon.png">
             </a>
             <div class="footer-contact pt-3">
@@ -147,9 +138,9 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="../../../admin_landing_page.php#hero">Home</a></li>
-            <li><a href="../../../admin_landing_page.php#about">About us</a></li>
-            <li><a href="../../../admin_landing_page.php#contact">Contact</a></li>
+            <li><a href="../../../index.php#hero">Home</a></li>
+            <li><a href="../../../index.php#about">About us</a></li>
+            <li><a href="../../../index.php#contact">Contact</a></li>
             <li><a href="#">Tour</a></li>
           </ul>
         </div>
@@ -157,7 +148,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Our Newsletter</h4>
           <p>Subscribe to our newsletter and receive the latest news about our services!</p>
-          <form action="../../../db_con/news_letter_4.php" method="post" class="php-email-form">
+          <form action="../../../db_con/news_letter_6.php" method="POST" class="php-email-form">
             <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
             <?php
                 if (isset($_SESSION['error_message'])) {

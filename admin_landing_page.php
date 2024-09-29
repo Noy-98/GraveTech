@@ -53,7 +53,7 @@ session_start();
     <div class="branding d-flex align-items-center">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.php" class="logo d-flex align-items-center">
+        <a href="admin_landing_page.php" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/" alt=""> -->
           <h1 class="sitename">Garden of Memories</h1>
@@ -67,9 +67,9 @@ session_start();
             <li><a href="#">Tour</a></li> 
             <li class="dropdown"><a><span>Portal</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="php/Portal/Guest/login.php">Login</a></li>
-                <li><a href="php/Portal/Guest/signup.php">Signup</a></li>
-                <li><a href="php/Portal/Guest/forgot_password.php">Forgot Password</a></li>
+                <li><a href="php/Portal/Admin/login.php">Login</a></li>
+                <li><a href="php/Portal/Admin/signup.php">Signup</a></li>
+                <li><a href="php/Portal/Admin/forgot_password.php">Forgot Password</a></li>
               </ul>
             </li>
           </ul>
@@ -176,7 +176,7 @@ session_start();
           </div><!-- End Google Maps -->
 
           <div class="col-lg-6">
-            <form action="db_con/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
+            <form action="db_con/contact_2.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -228,7 +228,7 @@ session_start();
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6">
           <div class="footer-about">
-            <a href="index.php" class="logo sitename">
+            <a href="admin_landing_page.php" class="logo sitename">
               <img src="assets/img/green_tree_icon.png">
             </a>
             <div class="footer-contact pt-3">

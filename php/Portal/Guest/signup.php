@@ -68,6 +68,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <ul>
                 <li><a href="../../../php/Portal/Guest/login.php">Login</a></li>
                 <li><a href="../../../php/Portal/Guest/signup.php">Signup</a></li>
+                <li><a href="../../../php/Portal/Guest/forgot_password.php">Forgot Password</a></li>
               </ul>
             </li>
           </ul>
