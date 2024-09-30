@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate the email
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         // Check if there's already a password reset request for this email
-        $sql = "SELECT status FROM password_reset_requests WHERE email = ? ORDER BY request_date DESC LIMIT 1";
+        $sql = "SELECT status FROM department_password_reset_requests WHERE email = ? ORDER BY request_date DESC LIMIT 1";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $user['username'];
 
             // Insert the request into the `password_reset_requests` table
-            $sql = "INSERT INTO password_reset_requests (user_id, email, status) VALUES (?, ?, 'pending')";
+            $sql = "INSERT INTO department_password_reset_requests (user_id, email, status) VALUES (?, ?, 'pending')";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("is", $user_id, $email);
             if ($stmt->execute()) {

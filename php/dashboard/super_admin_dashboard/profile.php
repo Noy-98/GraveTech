@@ -52,6 +52,14 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="../../../php/dashboard/super_admin_dashboard/confirmation_controls.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">confirmation_number</i>
+            </div>
+            <span class="nav-link-text ms-1">Confirmation Controls</span>
+          </a>
+        </li>
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>

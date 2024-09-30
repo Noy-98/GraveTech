@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="../../../php/dashboard/super_admin_dashboard/home.php">
+          <a class="nav-link text-white" href="../../../php/dashboard/super_admin_dashboard/home.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -48,7 +48,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="../../../php/dashboard/super_admin_dashboard/confirmation_controls.php">
+          <a class="nav-link text-white active bg-gradient-primary" href="../../../php/dashboard/super_admin_dashboard/confirmation_controls.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">confirmation_number</i>
             </div>
@@ -84,9 +84,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Confirmation Controls Dashboard</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+          <h6 class="font-weight-bolder mb-0">Confirmation Controls Dashboard</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -156,7 +156,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary backgroundColor shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Guest User List</h6>
+                <h6 class="text-white text-capitalize ps-3">Guest User Request List</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -164,15 +164,17 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Guest Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grave Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grave Location</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Guest ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Request Date</th>
+                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php include '../../../db_con/super_admin_home_dashboard.php'; ?>
+                    <?php include '../../../db_con/super_admin_confirmation_controls_dashboard.php'; ?>
                   </tbody>
                 </table>
               </div>
@@ -208,7 +210,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary backgroundColor shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Department User List</h6>
+                <h6 class="text-white text-capitalize ps-3">Department Request List</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -216,15 +218,17 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Department Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User Type</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Request Date</th>
+                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php include '../../../db_con/super_admin_home_dashboard_2.php'; ?>
+                    <?php include '../../../db_con/super_admin_confirmation_controls_dashboard_2.php'; ?>
                   </tbody>
                 </table>
               </div>

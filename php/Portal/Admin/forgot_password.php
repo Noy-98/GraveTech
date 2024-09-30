@@ -101,7 +101,7 @@ if (session_status() == PHP_SESSION_NONE) {
       }
       ?>
 
-      <form method="post" action="../../../db_con/guest_forgot_password_con.php">
+      <form method="post" action="../../../db_con/admin_forgot_password_con.php">
         <div class="txt_field">
           <input type="email" name="email" required>
           <span></span>

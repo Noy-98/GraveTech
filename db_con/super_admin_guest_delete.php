@@ -22,7 +22,7 @@ if (isset($_GET['email'])) {
 
     if ($user_id) {
         // Delete related rows in password_reset_requests
-        $stmt = $conn->prepare("DELETE FROM password_reset_requests WHERE user_id = ?");
+        $stmt = $conn->prepare("DELETE FROM guest_password_reset_requests WHERE user_id = ?");
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $stmt->close();
