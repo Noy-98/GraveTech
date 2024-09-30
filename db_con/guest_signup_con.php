@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
+    $profile_pictures = "../../../uploads/guest_pictures/profile_icon.png";
 
     // Form validation
     if (empty($full_name) || empty($grave_name) || empty($grave_location) || empty($email) || empty($password) || empty($confirm_password)) {
@@ -58,11 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare an SQL statement to insert the new user
-    $sql = "INSERT INTO guesttbl (full_name, grave_name, grave_location, email, password) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO guesttbl (full_name, grave_name, grave_location, email, password, profile_pictures) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
-        $stmt->bind_param("sssss", $full_name, $grave_name, $grave_location, $email, $hashed_password);
+        $stmt->bind_param("ssssss", $full_name, $grave_name, $grave_location, $email, $hashed_password, $profile_pictures);
 
         if ($stmt->execute()) {
             $_SESSION['success'] = 'Registration successful!';
