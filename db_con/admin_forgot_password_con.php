@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit();
             } elseif ($request['status'] === 'approved') {
                 $_SESSION['success'] = 'Your password reset request has been approved. The request is valid for 1 minute.';
-                header('Location: ../php/Portal/Admin/forgot_password.php');
+                header('Location: ../php/Portal/Admin/change_password.php');
                 exit();
             } elseif ($request['status'] === 'decline') {
                 $_SESSION['error'] = 'Your email is decline';
