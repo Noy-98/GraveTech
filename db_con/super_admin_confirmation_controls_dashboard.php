@@ -22,17 +22,17 @@ if ($result->num_rows > 0) {
                 <td>".htmlspecialchars($row['status'])."</td>
                 <td>".htmlspecialchars($row['request_date'])."</td>
                 <td>
-                    <a href='../../../db_con/admin_controls_approved.php?user_id=".urlencode($row['user_id'])."' class='text-secondary3 font-weight-bold text-xs' onclick='return confirm(\"Are you sure you want to Approve this Guest user request?\");'>
+                    <a href='../../../db_con/admin_controls_approved.php?user_id=".urlencode($row['user_id'])."' class='btn bg-gradient-primary btn-primary text-secondary3' onclick='return confirm(\"Are you sure you want to Approve this Guest user request?\");'>
                         Approve
                     </a>
                 </td>
                 <td>
-                    <a href='../../../db_con/admin_controls_decline.php?user_id=".urlencode($row['user_id']). "' class='text-secondary2 font-weight-bold text-xs' onclick='return confirm(\"Are you sure you want Decline this Guest user request?\");'>
+                    <a href='../../../db_con/admin_controls_decline.php?user_id=".urlencode($row['user_id']). "' class='btn bg-gradient-primary btn-primary text-secondary4' onclick='return confirm(\"Are you sure you want Decline this Guest user request?\");'>
                         Decline
                     </a>
                 </td>
                 <td>
-                    <a href='../../../db_con/admin_delete.php?user_id=". urlencode($row['user_id']) . "' class='text-secondary2 font-weight-bold text-xs' onclick='return confirm(\"Are you sure you want Delete this Guest user request?\");'>
+                    <a href='../../../db_con/admin_delete.php?user_id=". urlencode($row['user_id']) . "' class='btn bg-gradient-primary btn-primary text-secondary2' onclick='return confirm(\"Are you sure you want Delete this Guest user request?\");'>
                         Delete
                     </a>
                 </td>

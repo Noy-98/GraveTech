@@ -22,17 +22,17 @@ if ($result->num_rows > 0) {
                 <td>".htmlspecialchars($row['status'])."</td>
                 <td>".htmlspecialchars($row['request_date'])."</td>
                 <td>
-                    <a href='../../../db_con/admin_controls_approved_2.php?user_id=".urlencode($row['user_id'])."' class='text-secondary3 font-weight-bold text-xs' onclick='return confirm(\"Are you sure you want to Approve this Department user request?\");'>
+                    <a href='../../../db_con/admin_controls_approved_2.php?user_id=".urlencode($row['user_id'])."' class='btn bg-gradient-primary btn-primary text-secondary3' onclick='return confirm(\"Are you sure you want to Approve this Department user request?\");'>
                         Approve
                     </a>
                 </td>
                 <td>
-                    <a href='../../../db_con/admin_controls_decline_2.php?user_id=".urlencode($row['user_id']). "' class='text-secondary2 font-weight-bold text-xs' onclick='return confirm(\"Are you sure you want Decline this Department user request?\");'>
+                    <a href='../../../db_con/admin_controls_decline_2.php?user_id=".urlencode($row['user_id']). "' class='btn bg-gradient-primary btn-primary text-secondary4' onclick='return confirm(\"Are you sure you want Decline this Department user request?\");'>
                         Decline
                     </a>
                 </td>
                 <td>
-                    <a href='../../../db_con/admin_delete_2.php?user_id=". urlencode($row['user_id']) . "' class='text-secondary2 font-weight-bold text-xs' onclick='return confirm(\"Are you sure you want Delete this Department user request?\");'>
+                    <a href='../../../db_con/admin_delete_2.php?user_id=". urlencode($row['user_id']) . "' class='btn bg-gradient-primary btn-primary text-secondary2' onclick='return confirm(\"Are you sure you want Delete this Department user request?\");'>
                         Delete
                     </a>
                 </td>

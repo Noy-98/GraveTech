@@ -22719,7 +22719,7 @@ label,
 }
 
 .bg-gradient-primary {
-  background-image: linear-gradient(195deg, #EC407A 0%, #D81B60 100%);
+  background-image: linear-gradient(195deg, #afd198 0%, #afd198 100%);
 }
 
 .bg-gradient-secondary {
@@ -27933,11 +27933,18 @@ pre[class*="language-"] {
 
 
 .text-secondary2{
-  color: #eb4034 !important;
+  color: #faf7f7 !important;
+  background: #f54242;
 }
 
 .text-secondary3{
-  color: #7134eb !important;
+  color: #faf7f7 !important;
+  background: #5607f2;
+}
+
+.text-secondary4{
+  color: #faf7f7 !important;
+  background: #f29407;
 }
 
 .backgroundColor{

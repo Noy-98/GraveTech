@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
                 <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['grave_location'])."</p></td>
                 <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['id'])."</p></td>
                 <td class='align-middle'>
-                    <a href='../../../db_con/super_admin_guest_delete.php?email=".urlencode($row['email'])."' class='text-secondary2 font-weight-bold text-xs' onclick='return confirm(\"Are you sure you want to delete this guest?\");'>
+                    <a href='../../../db_con/super_admin_guest_delete.php?email=".urlencode($row['email'])."' class='btn bg-gradient-primary btn-primary text-secondary2' onclick='return confirm(\"Are you sure you want to delete this guest?\");'>
                         Delete
                     </a>
                 </td>
