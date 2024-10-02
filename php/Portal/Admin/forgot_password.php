@@ -148,7 +148,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="col-lg-4 col-md-12 footer-newsletter">
           <h4>Our Newsletter</h4>
           <p>Subscribe to our newsletter and receive the latest news about our services!</p>
-          <form action="../../../db_con/news_letter_6.php" method="POST" class="php-email-form">
+          <form action="../../../db_con/news_letter_8.php" method="POST" class="php-email-form">
             <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
             <?php
                 if (isset($_SESSION['error_message'])) {

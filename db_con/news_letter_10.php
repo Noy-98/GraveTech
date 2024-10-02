@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Form validation
     if (empty($email)) {
         $_SESSION['error_message'] = 'Fields are required.';
-        header('Location: ../php/Portal/Admin/forgot_password.php#footer');
+        header('Location: ../php/Portal/Guest/change_password.php#footer');
         exit();
     }
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($check_stmt->num_rows > 0) {
             // Email already exists
             $_SESSION['error_message'] = 'This email is already subscribed.';
-            header('Location: ../php/Portal/Admin/forgot_password.php#footer');
+            header('Location: ../php/Portal/Guest/change_password.php#footer');
         } else {
             // Prepare an SQL statement to insert the new email
             $insert_sql = "INSERT INTO newsletter (email) VALUES (?)";
@@ -36,28 +36,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 if ($insert_stmt->execute()) {
                     $_SESSION['success_message'] = 'Your email has been sent. Thank you!';
-                    header('Location: ../php/Portal/Admin/forgot_password.php#footer');
+                    header('Location: ../php/Portal/Guest/change_password.php#footer');
                 } else {
                     $_SESSION['error_message'] = 'Error: ' . $insert_stmt->error;
-                    header('Location: ../php/Portal/Admin/forgot_password.php#footer');
+                    header('Location: ../php/Portal/Guest/change_password.php#footer');
                 }
                 
                 $insert_stmt->close();
             } else {
                 $_SESSION['error_message'] = 'Error: ' . $conn->error;
-                header('Location: ../php/Portal/Admin/forgot_password.php#footer');
+                header('Location: ../php/Portal/Guest/change_password.php#footer');
             }
         }
         
         $check_stmt->close();
     } else {
         $_SESSION['error_message'] = 'Error: ' . $conn->error;
-        header('Location: ../php/Portal/Admin/forgot_password.php#footer');
+        header('Location: ../php/Portal/Guest/change_password.php#footer');
     }
 
     $conn->close();
 } else {
     $_SESSION['error_message'] = 'Invalid request method.';
-    header('Location: ../php/Portal/Admin/forgot_password.php#footer');
+    header('Location: ../php/Portal/Guest/change_password.php#footer');
 }
 ?>
