@@ -2,6 +2,6 @@
 session_start();
 session_unset();
 session_destroy();
-header('Location: ../php/device_login.php');
+header('Location: ../php/Portal/Guest/login.php');
 exit();
 ?>
