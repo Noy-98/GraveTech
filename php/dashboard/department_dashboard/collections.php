@@ -63,6 +63,14 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
             <span class="nav-link-text ms-1">Collections</span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/messages.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">chat_bubble</i>
+            </div>
+            <span class="nav-link-text ms-1">Messages</span>
+          </a>
+        </li>
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
@@ -179,8 +187,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
                         <input type="text" name="device_name" class="form-control">
                         </div>
                         <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Message</label>
-                        <input type="text" name="device_ip_address" class="form-control">
+                        <label class="form-label">Concern</label>
+                        <input type="text" name="concern" class="form-control">
                         </div>
                         <label class="form-label">Image Capture</label>
                         <div class="input-group input-group-outline mb-3">
@@ -241,7 +249,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Guest Email</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Device Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Message</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Concern</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image Capture</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Video Capture</th>
                       <th class="text-secondary opacity-7"></th>

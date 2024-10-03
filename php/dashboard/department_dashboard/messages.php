@@ -4,19 +4,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
   header('Location: ../../../php/Portal/Admin/login.php');
   exit();
 }
-require_once '../../../db_con/conn.php'; // Adjust the path if necessary
-
-// Fetch user data from the database
-$user_id = $_SESSION['user_id'];
-$sql = "SELECT first_name, last_name, department_name, profile_pictures, email, user_type FROM userdepartmenttbl WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$user_data = $result->fetch_assoc();
-$stmt->close();
-
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +48,7 @@ $conn->close();
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="../../../php/dashboard/department_dashboard/add_devices.php">
+          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/add_devices.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">add_circle</i>
             </div>
@@ -77,7 +64,7 @@ $conn->close();
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/messages.php">
+          <a class="nav-link text-white active bg-gradient-primary" href="../../../php/dashboard/department_dashboard/messages.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">chat_bubble</i>
             </div>
@@ -88,7 +75,7 @@ $conn->close();
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="../../../php/dashboard/department_dashboard/profile.php">
+          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/profile.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
@@ -113,9 +100,9 @@ $conn->close();
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Profile Dashboard</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Messages Dashboard</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Profile Dashboard</h6>
+          <h6 class="font-weight-bolder mb-0">Messages Dashboard</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -158,110 +145,109 @@ $conn->close();
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid px-2 px-md-4">
-      <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('../../../assets/img/garden_of_memories_background.jpg');">
-        <span class="mask  bg-gradient-primary  opacity-6"></span>
-      </div>
-      <div class="card card-body mx-3 mx-md-4 mt-n6">
-        <div class="row gx-4 mb-2">
-          <div class="col-auto">
-            <div class="avatar avatar-xl position-relative">
-              <img src="<?php echo htmlspecialchars($user_data['profile_pictures']); ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-            </div>
-          </div>
-          <div class="col-auto my-auto">
-            <div class="h-100">
-              <h5 class="mb-1">
-                <?php echo htmlspecialchars($user_data['first_name']); ?> <?php echo htmlspecialchars($user_data['last_name']); ?>
-              </h5>
-              <p class="mb-0 font-weight-normal text-sm">
-                <?php echo htmlspecialchars($user_data['department_name']); ?>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="row">
-            <div class="col-12 col-xl-4">
-              <div class="card card-plain h-100">
-                <div class="card-header pb-0 p-3">
-                  <div class="row">
-                    <div class="col-md-8 d-flex align-items-center">
-                      <h6 class="mb-0">Profile Information</h6>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body p-3">
-                  <hr class="horizontal gray-light my-4">
-                  <ul class="list-group">
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">First Name:</strong> &nbsp; <?php echo htmlspecialchars($user_data['first_name']); ?> </li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Last Name:</strong> &nbsp; <?php echo htmlspecialchars($user_data['last_name']); ?> </li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Department Name:</strong> &nbsp; <?php echo htmlspecialchars($user_data['department_name']); ?> </li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; <?php echo htmlspecialchars($user_data['email']); ?> </li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">User Type:</strong> &nbsp; <?php echo htmlspecialchars($user_data['user_type']); ?> </li>
-                  </ul>
-                </div>
+    <div class="container-fluid py-4">
+      <div class="message">
+				<!-- Validation message section -->
+				<?php
+				if (session_status() == PHP_SESSION_NONE) {
+					session_start(); // Start the session if it hasn't started
+				}
+
+				// Display error messages
+				if (isset($_SESSION['error'])) {
+					echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
+					unset($_SESSION['error']); // Clear the error message
+				}
+
+				// Display success messages
+				if (isset($_SESSION['success'])) {
+					echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
+					unset($_SESSION['success']); // Clear the success message
+				}
+				?>
+			</div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary backgroundColor shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Add Message</h6>
               </div>
             </div>
-            <div class="col-12 col-xl-4">
+            <div class="card-body px-0 pb-2">
+            <div class="col-12 col-xl-12">
                 <div class="card-body">
-                    <form method="post" action="../../../db_con/department_dashboard_profile_dashboard.php">
+                    <form method="post" action="#">
                         <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">First Name</label>
-                        <input type="text" name="first_name" class="form-control">
+                        <label class="form-label">To Guest Email</label>
+                        <input type="email" name="guest_email" class="form-control">
                         </div>
                         <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Last Name</label>
-                        <input type="text" name="last_name" class="form-control">
+                        <label class="form-label">From Department Email</label>
+                        <input type="email" name="department_email" class="form-control">
                         </div>
                         <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Department Name</label>
-                        <input type="text" name="department_name" class="form-control">
-                        </div>
-                        <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control">
-                        </div>
-                        <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Password</label>
-                        <input type="password" name="new_password" class="form-control">
-                        </div>
-                        <div class="input-group input-group-outline mb-3">
-                        <label class="form-label">Confirm Password</label>
-                        <input type="password" name="confirm_password" class="form-control">
+                        <label class="form-label">Message</label>
+                        <input type="text" name="message" class="form-control">
                         </div>
                         <div class="form-check form-check-info text-start ps-0">
                         <div class="text-center">
-                        <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Update</button>
+                        <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Send</button>
                         </div>
                     </form>
-                    <div class="col-12 text-right">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" id="uploadButton">Update Picture</button>
-                        <form id="uploadForm" method="post" action="../../../db_con/department_dashboard_update_profile_picture.php" enctype="multipart/form-data" style="display: none;">
-                          <input type="file" id="profilePictureInput" name="profile_picture" accept="image/*">
-                        </form>
-                    </div>
-                    <div class="message">
-                      <!-- Validation message section -->
-                      <?php
-                      if (session_status() == PHP_SESSION_NONE) {
-                        session_start(); // Start the session if it hasn't started
-                      }
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                      // Display error messages
-                      if (isset($_SESSION['error'])) {
-                        echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
-                        unset($_SESSION['error']); // Clear the error message
-                      }
+    <div class="container-fluid py-4">
+      <div class="message">
+				<!-- Validation message section -->
+				<?php
+				if (session_status() == PHP_SESSION_NONE) {
+					session_start(); // Start the session if it hasn't started
+				}
 
-                      // Display success messages
-                      if (isset($_SESSION['success'])) {
-                        echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
-                        unset($_SESSION['success']); // Clear the success message
-                      }
-                      ?>
-                    </div>
-                    </div>
+				// Display error messages
+				if (isset($_SESSION['error'])) {
+					echo '<div class="error_message">' . $_SESSION['error'] . '</div>';
+					unset($_SESSION['error']); // Clear the error message
+				}
+
+				// Display success messages
+				if (isset($_SESSION['success'])) {
+					echo '<div class="success_message">' . $_SESSION['success'] . '</div>';
+					unset($_SESSION['success']); // Clear the success message
+				}
+				?>
+			</div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary backgroundColor shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Messages List</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From Guest Email</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">To Department Email</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Messages</th>
+                      <th class="text-secondary opacity-7"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -336,7 +322,6 @@ $conn->close();
   <script src="../../../dashboard_assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../../../dashboard_assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../../../dashboard_assets/js/material-dashboard-2.js"></script>
-  <script src="../../../dashboard_assets/js/material-dashboard-3.js"></script>
 
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
