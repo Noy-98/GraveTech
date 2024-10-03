@@ -17,10 +17,10 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td>".htmlspecialchars($row['user_id'])."</td>
-                <td>".htmlspecialchars($row['email'])."</td>
-                <td>".htmlspecialchars($row['status'])."</td>
-                <td>".htmlspecialchars($row['request_date'])."</td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['user_id'])."</p></td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['email'])."</p></td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['status'])."</p></td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['request_date'])."</p></td>
                 <td>
                     <a href='../../../db_con/admin_controls_approved.php?user_id=".urlencode($row['user_id'])."' class='btn bg-gradient-primary btn-primary text-secondary3' onclick='return confirm(\"Are you sure you want to Approve this Guest user request?\");'>
                         Approve

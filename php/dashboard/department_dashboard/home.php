@@ -71,6 +71,14 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
             <span class="nav-link-text ms-1">Messages</span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/inbox.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">email</i>
+            </div>
+            <span class="nav-link-text ms-1">Inbox</span>
+          </a>
+        </li>
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
@@ -179,7 +187,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Guest Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Guest Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Guest Email</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grave Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grave Location</th>

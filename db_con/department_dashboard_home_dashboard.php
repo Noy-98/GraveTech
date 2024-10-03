@@ -25,13 +25,13 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td>".htmlspecialchars($row['guest_name'])."</td>
-                <td>".htmlspecialchars($row['guest_email'])."</td>
-                <td>".htmlspecialchars($row['grave_name'])."</td>
-                <td>".htmlspecialchars($row['grave_location'])."</td>
-                <td>".htmlspecialchars($row['device_name'])."</td>
-                <td>".htmlspecialchars($row['device_ip_address'])."</td>
-                <td>".htmlspecialchars($row['device_status'])."</td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['guest_name'])."</p></td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['guest_email'])."</p></td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['grave_name'])."</p></td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['grave_location'])."</p></td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['device_name'])."</p></td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['device_ip_address'])."</p></td>
+                <td><p class='text-xs font-weight-bold mb-0'>".htmlspecialchars($row['device_status'])."</p></td>
                 <td>
                     <a href='".htmlspecialchars($row['device_ip_address'])."' class='btn bg-gradient-primary btn-primary text-secondary3'>
                         View

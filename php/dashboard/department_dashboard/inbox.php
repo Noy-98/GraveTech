@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
   header('Location: ../../../php/Portal/Admin/login.php');
   exit();
 }
@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
   <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/green_tree_icon.png">
   <link rel="icon" type="image/png" href="../../../assets/img/green_tree_icon.png">
   <title>
-  Garden of Memories | Super Admin Dashboard
+  Garden of Memories | Department Dashboard
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -33,14 +33,14 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-        <span class="ms-1 font-weight-bold text-white">Super Admin Dashboard</span>
+        <span class="ms-1 font-weight-bold text-white">Department Dashboard</span>
       </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white" href="../../../php/dashboard/super_admin_dashboard/home.php">
+          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/home.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -48,18 +48,42 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="../../../php/dashboard/super_admin_dashboard/confirmation_controls.php">
+          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/add_devices.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">confirmation_number</i>
+              <i class="material-icons opacity-10">add_circle</i>
             </div>
-            <span class="nav-link-text ms-1">Confirmation Controls</span>
+            <span class="nav-link-text ms-1">Add Devices</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/collections.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">collections</i>
+            </div>
+            <span class="nav-link-text ms-1">Collections</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/messages.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">chat_bubble</i>
+            </div>
+            <span class="nav-link-text ms-1">Messages</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white active bg-gradient-primary" href="../../../php/dashboard/department_dashboard/inbox.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">email</i>
+            </div>
+            <span class="nav-link-text ms-1">Inbox</span>
           </a>
         </li>
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="../../../php/dashboard/super_admin_dashboard/profile.php">
+          <a class="nav-link text-white " href="../../../php/dashboard/department_dashboard/profile.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
@@ -84,9 +108,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Confirmation Controls Dashboard</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Inbox Dashboard</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Confirmation Controls Dashboard</h6>
+          <h6 class="font-weight-bolder mb-0">Inbox Dashboard</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -119,7 +143,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
               </ul>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="../../../php/dashboard/super_admin_dashboard/profile.php" class="nav-link text-body font-weight-bold px-0">
+              <a href="../../../php/dashboard/department_dashboard/profile.php" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Profile</span>
               </a>
@@ -129,7 +153,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
       </div>
     </nav>
     <!-- End Navbar -->
-
     <div class="container-fluid py-4">
       <div class="message">
 				<!-- Validation message section -->
@@ -156,7 +179,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary backgroundColor shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Guest User Request List</h6>
+                <h6 class="text-white text-capitalize ps-3">Concern List</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -164,17 +187,15 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Request Date</th>
-                      <th class="text-secondary opacity-7"></th>
-                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Subject</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Message</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php include '../../../db_con/super_admin_confirmation_controls_dashboard.php'; ?>
+                    <?php include '../../../db_con/department_dashboard_inbox_dashboard.php'; ?>
                   </tbody>
                 </table>
               </div>
@@ -210,7 +231,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary backgroundColor shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Department Request List</h6>
+                <h6 class="text-white text-capitalize ps-3">Subscriber List</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -218,17 +239,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Request Date</th>
-                      <th class="text-secondary opacity-7"></th>
-                      <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php include '../../../db_con/super_admin_confirmation_controls_dashboard_2.php'; ?>
+                    <?php include '../../../db_con/department_dashboard_inbox_dashboard_2.php'; ?>
                   </tbody>
                 </table>
               </div>
@@ -237,7 +254,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
         </div>
       </div>
     </div>
-
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
