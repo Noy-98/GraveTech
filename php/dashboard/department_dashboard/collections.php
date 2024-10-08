@@ -185,7 +185,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
             <div class="card-body px-0 pb-2">
             <div class="col-12 col-xl-12">
                 <div class="card-body">
-                    <form method="post" action="#">
+                    <form method="post" action="../../../db_con/department_dashboard_add_collection.php">
                         <div class="input-group input-group-outline mb-3">
                         <label class="form-label">Guest Email</label>
                         <input type="email" name="guest_email" class="form-control">
@@ -206,7 +206,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'user') {
                         <label class="form-label">Video Capture</label>
                         <div class="input-group input-group-outline mb-3">
                         <label class="form-label"></label>
-                        <input type="file" name="video_capture" class="form-control" accept="image/*">
+                        <input type="file" name="video_capture" class="form-control" accept="video/*">
                         </div>
                         <div class="form-check form-check-info text-start ps-0">
                         <div class="text-center">

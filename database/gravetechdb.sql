@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2024 at 01:13 AM
+-- Generation Time: Oct 05, 2024 at 05:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,15 +33,16 @@ CREATE TABLE `guesttbl` (
   `grave_name` varchar(255) NOT NULL,
   `grave_location` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `profile_pictures` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `guesttbl`
 --
 
-INSERT INTO `guesttbl` (`id`, `full_name`, `grave_name`, `grave_location`, `email`, `password`) VALUES
-(2, 'Jay', 'joy', 'makati', 'noy@gmail.com', '$2y$10$1WHONR4iUq6aIDaxoMD8k.AQGvtgJc38mJLV0kic40.LBygh4XoT2');
+INSERT INTO `guesttbl` (`id`, `full_name`, `grave_name`, `grave_location`, `email`, `password`, `profile_pictures`) VALUES
+(10, 'Jay Aspacio', 'dela cruz', 'B3', 'yajaspacio@gmail.com', '$2y$10$6SkZFY.3cZtI/7uC6iuuBuc5kBA15ugFrm43JrTZNn6hQAXmRdq46', '../../../uploads/guest_pictures/profile_icon.png');
 
 -- --------------------------------------------------------
 
@@ -65,8 +66,8 @@ CREATE TABLE `userdepartmenttbl` (
 --
 
 INSERT INTO `userdepartmenttbl` (`id`, `first_name`, `last_name`, `department_name`, `profile_pictures`, `email`, `password`, `user_type`) VALUES
-(1, 'Jay', 'Aspacio', 'Janitor', '', 'noy@gmail.com', '$2y$10$jhf/3TB/tb3JwITi6bK.xOsQD5e6sQ8juxBB6aI7F.TDq/4d8IUL.', 'admin'),
-(2, 'Department', 'Department', 'Janitor', '', 'janitor@gmail.com', '$2y$10$nNutgXguMT7nyne2u03y6.pXjI0v6dQrPkKJ59dDsluV9pCkFGlTu', 'user');
+(1, 'Garden Of Memories', 'Administrator', 'IT Department', '../../../uploads/super_admin_pictures/1.png', 'itdept@gmail.com', '$2y$10$etjlCHhfLnEljmlxcEdT9Oj7WykQtCHlCE2z/BJFX9YdCs0/Zm316', 'admin'),
+(10, 'Jay', 'Aspacio', 'Janitor', '../../../uploads/department_pictures/profile_icon.png', 'yajaspacio@gmail.com', '$2y$10$kCYjRjsbOPR3WDC/L28wwOUtn/RclrNqBiPlK03eJIf0vdYdgep0.', 'user');
 
 --
 -- Indexes for dumped tables
@@ -76,7 +77,8 @@ INSERT INTO `userdepartmenttbl` (`id`, `first_name`, `last_name`, `department_na
 -- Indexes for table `guesttbl`
 --
 ALTER TABLE `guesttbl`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `userdepartmenttbl`
@@ -93,13 +95,13 @@ ALTER TABLE `userdepartmenttbl`
 -- AUTO_INCREMENT for table `guesttbl`
 --
 ALTER TABLE `guesttbl`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `userdepartmenttbl`
 --
 ALTER TABLE `userdepartmenttbl`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
